@@ -1,0 +1,172 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:
+    /* Safari for OS X and iOS (San Francisco)*/
+    -apple-system,
+    /* Chrome < 56 for OS X (San Francisco) */
+    BlinkMacSystemFont,
+    /* Windows */
+    "Segoe UI",
+    /* Android */
+    "Roboto",
+    /* Basic web fallback */
+    "Helvetica Neue", Arial, sans-serif,
+    /* Emoji fonts */
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+:root{
+    font-size: 62.5%;
+    --azul-claro: #2196f3;
+    --azul-oscuro: #3f51b5;
+    --rojo: red;
+}
+
+.nav{
+    display: flex;
+}
+
+.nav > h1{
+    margin: 1rem 2rem;
+    min-width: 30rem;
+    font-size: 3rem;
+}
+
+.nav > ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: var(--azul-claro);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.nav > ul > li{
+    margin: 1rem;
+}
+
+.success{
+    font-weight: bold;
+    background: greenyellow;
+    text-align: center;
+    font-size: 2.2rem;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.error{
+    font-weight: bold;
+    background: red;
+    text-align: center;
+    font-size: 2.2rem;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+h2{
+    margin: 1rem 2rem;
+    font-size: 2.5rem;
+    color: #4e4e4e;
+    border-bottom: 1px solid #4e4e4e;
+    padding-bottom: .5rem;
+}
+
+.comidas{
+    margin-top: 2rem;
+    display: grid;
+    font-size: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat(3, minmax( 5rem, auto ));
+    grid-auto-rows: minmax( 5rem, auto );
+}
+
+.comidas > *{
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+}
+
+.comidas__header-descripcion,.comidas__header-entresemana,.comidas__header-acciones{
+    font-weight: bold;
+}
+
+.comidas__header-entresemana, .comidas__comida-entresemana{
+    text-align: center;
+}
+
+h2 > a > i{
+    transform: scale(var(--ggs,1.2)) !important;
+}
+
+.comidas__comida{
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comidas__header, .comidas__comida{
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.comidas__comida-acciones > a:link, .comidas__comida-acciones > a:visited{
+    text-decoration: none;
+    color: var(--azul-claro);
+}
+
+.comidas__comida-acciones > a.comidas__comida-acciones__borrar:link, 
+.comidas__comida-acciones > a.comidas__comida-acciones__borrar:visited{
+    color: var(--rojo);
+}
+
+.form-editar-comida{
+    font-size: 1.5rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.form-editar-comida > textarea{
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.btn{
+    font-size: 1.5rem;
+    padding: .8rem 1.3rem;
+    border: none;
+    border-radius: .6rem;
+    cursor: pointer;
+    margin: 1rem;
+    transition: .2s ease-in-out;
+}
+
+.btn.azul{
+    background: var(--azul-claro);
+    color: white;
+}
+.btn.azul:hover{
+    background: var(--azul-oscuro);
+}
+
+@media screen and ( max-width: 500px ){
+    .nav{
+        flex-direction: column;
+    }
+    .nav > h1{
+        text-align: center;
+    }
+}

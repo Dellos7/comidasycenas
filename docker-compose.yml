@@ -1,0 +1,34 @@
+version: "3.1"
+services:
+  web:
+    build: .
+    container_name: comidasycenas_web-php
+    ports:
+      - 8080:80
+    volumes:
+      - ./web:/var/www/html/comidasycenas
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_PORT=${MYSQL_PORT}
+  bbdd:
+    image: mysql:latest
+    container_name: comidasycenas_bbdd-mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: comidasycenas_phpmyadmin
+    environment:
+      - PMA_HOST=bbdd
+    ports:
+      - 8081:80
