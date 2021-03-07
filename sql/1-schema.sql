@@ -6,6 +6,7 @@ CREATE TABLE comida(
     codigo INTEGER NOT NULL AUTO_INCREMENT,
     descripcion TEXT NOT NULL,
     entresemana BOOLEAN NOT NULL DEFAULT 1,
+    cena BOOLEAN NOT NULL DEFAULT 0,
     CONSTRAINT pk_comida PRIMARY KEY (codigo)
 );
 

@@ -89,7 +89,7 @@ h2{
     display: grid;
     font-size: 2rem;
     justify-content: center;
-    grid-template-columns: repeat(3, minmax( 5rem, auto ));
+    grid-template-columns: repeat(2, minmax( 5rem, auto ));
     grid-auto-rows: minmax( 5rem, auto );
 }
 
@@ -98,11 +98,13 @@ h2{
     border-bottom: 1px solid gray;
 }
 
-.comidas__header-descripcion,.comidas__header-entresemana,.comidas__header-acciones{
+.comidas__header-descripcion,.comidas__header-entresemana,.comidas__header-cena,.comidas__header-acciones{
     font-weight: bold;
 }
 
-.comidas__header-entresemana, .comidas__comida-entresemana{
+.comidas__header-entresemana, .comidas__comida-entresemana,
+.comidas__header-cena, .comidas__comida-cena
+{
     text-align: center;
 }
 
@@ -160,6 +162,20 @@ h2 > a > i{
 }
 .btn.azul:hover{
     background: var(--azul-oscuro);
+}
+
+.form-login{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.form-login > input{
+    padding: 1rem;
+    font-size: 2rem;
+    margin: 1rem;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
 @media screen and ( max-width: 500px ){

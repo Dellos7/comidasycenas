@@ -22,11 +22,25 @@ class ComidaController extends Controller {
                 if( $comida ){
                     include_once "views/comida/editar.php";
                 } else{
-                    Utils::redirect( BASE_URL . "comidas" );
+                    Utils::redirect( "comidas" );
                 }
             } else{
-                Utils::redirect( BASE_URL . "comidas" );
+                Utils::redirect( "comidas" );
             }
+        }
+    }
+
+    public function borrar(){
+        if( Utils::validarUsuarioYRedirigir() ){            
+            $codigo = $_GET['codigo'];
+            if( $codigo ){
+                $ok = Comida::borrarComida( $this->db, $codigo );
+                $res = [ 'error' => !$ok ];
+            } else{
+                $res = [ 'error' => true ];
+            }
+            header( "Content-Type: application/json" );
+            echo json_encode( $res );
         }
     }
 
@@ -35,16 +49,17 @@ class ComidaController extends Controller {
             $codigo = $_POST['codigo'];
             $descripcion = $_POST['descripcion'];
             $esEntreSemana = isset($_POST['entresemana']);
-            $res = Comida::guardarComida( $this->db, $descripcion, $esEntreSemana, $codigo );
+            $esCena = isset($_POST['cena']);
+            $res = Comida::guardarComida( $this->db, $descripcion, $esEntreSemana, $esCena, $codigo );
             if( $res ){
                 SessionUtils::set( 'success', $codigo ? 'Comida guardada correctamente' : 'Comida añadida correctamente' );
-                Utils::redirect( BASE_URL . 'comidas' );
+                Utils::redirect( 'comidas' );
             } else{
                 SessionUtils::set( 'error', 'Error guardando la comida' );
                 if( $codigo ){
-                    Utils::redirect( BASE_URL . 'comida/editar?codigo=' . $codigo );
+                    Utils::redirect( 'comida/editar?codigo=' . $codigo );
                 } else{
-                    Utils::redirect( BASE_URL . 'comida/anyadir' );
+                    Utils::redirect( 'comida/anyadir' );
                 }
             }
         }

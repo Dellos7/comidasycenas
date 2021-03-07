@@ -1,6 +1,6 @@
 <?php
 
-class LoginController extends Controller {
+class UsuarioController extends Controller {
 
     public function defaultAction(){
         $this->login();
@@ -15,6 +15,11 @@ class LoginController extends Controller {
         }
     }
 
+    public function logout(){
+        SessionUtils::remove( 'usuario' );
+        Utils::redirect( 'usuario/login' );
+    }
+
     private function doLogin(){
         $nomUsuario = $_POST['usuario'];
         $contrasenya = $_POST['contrasenya'];
@@ -26,11 +31,11 @@ class LoginController extends Controller {
                 Utils::redirect( 'semana' );
            } else{
                 SessionUtils::set( 'error', 'Login incorrecto' );
-                Utils::redirect( 'login' );
+                Utils::redirect( 'usuario/login' );
            }
         } else{
             SessionUtils::set( 'error', 'Login incorrecto' );
-            Utils::redirect( 'login' );
+            Utils::redirect( 'usuario/login' );
         }
     }
 }

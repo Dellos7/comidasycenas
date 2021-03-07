@@ -3,7 +3,7 @@
 class Utils{
 
     public static function redirect( $url ){
-        header( "Location: " . $url );
+        header( "Location: " . BASE_URL . $url );
     }
 
     public static function validarUsuario(){
@@ -18,7 +18,7 @@ class Utils{
         if( self::validarUsuario() ){
             return true;
         }
-        self::redirect( 'login' );
+        self::redirect( 'usuario/login' );
     }
 
 }

@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/iconos.css">
     <link rel="stylesheet" href="assets/css/estilo.css">
+    <script defer type="text/javascript" src="assets/js/script.js"></script>
 </head>
 <body>
     <nav class="nav">
@@ -19,6 +20,7 @@
             <ul>
                 <li><a href="semana"><i class="icono gg-calendar-dates"></i>Semana</a></li>
                 <li><a href="comidas"><i class="icono gg-coffee"></i>Comidas</a></li>
+                <li><a href="usuario/logout"><i class="icono gg-arrow-right-r"></i>Salir</a></li>
             </ul>
         <?php endif; ?>
     </nav>

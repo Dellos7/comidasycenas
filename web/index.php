@@ -9,16 +9,7 @@ require_once "config/bbdd.php";
 session_start();
 ob_start();
 
-include_once "views/layouts/header.php";
-include_once "views/alert/success.php";
-include_once "views/alert/error.php";
-
-// try{
-//     $bbdd = BaseDeDatos::obtenerConexion();
-// } catch( ConexionBbddException $e ){
-//     die( $e->getMessage() );
-// }
-
+$api = false;
 $request = $_GET['request'];
 $defCtrl = DEFAULT_CONTROLLER;
 $controller = new $defCtrl;
@@ -26,6 +17,10 @@ $action = DEFAULT_ACTION;
 if( $request ){
     $requestArr = explode( "/", $request );
     if( $requestArr && $requestArr[0] ){
+        if( $requestArr[0] === 'api' ){
+            $api = true;
+            array_shift( $requestArr );
+        }
         $controllerClassName = ucfirst( $requestArr[0] ) . 'Controller';
         if( class_exists( $controllerClassName ) ){
             $controller = new $controllerClassName;
@@ -35,8 +30,17 @@ if( $request ){
         }
     }
 }
+
+if( !$api ){
+    include_once "views/layouts/header.php";
+    include_once "views/alert/success.php";
+    include_once "views/alert/error.php";
+}
+
 $controller->$action();
 
-include_once "views/layouts/footer.php";
+if( !$api ){
+    include_once "views/layouts/footer.php";
+}
 
 ob_flush();
