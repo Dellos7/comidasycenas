@@ -20,3 +20,18 @@ INSERT INTO comida (descripcion, entresemana, cena)
 
 INSERT INTO comida (descripcion, entresemana, cena)
     VALUES ('Volovan', 1, 1);
+
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-01', 9, 0, 1, 6 );
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-02', 9, 0, 2, 6 );
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-03', 9, 0, 5, 6 );
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-04', 9, 0, 5, 6 );
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-05', 9, 0, 5, 6 );
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-06', 9, 1, 5, 6 );
+INSERT INTO dia (fecha, semana, finde, mediodia_cod, cena_cod)
+    VALUES ( '2021-03-07', 9, 1, 4, 6 );

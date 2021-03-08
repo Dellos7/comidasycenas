@@ -76,12 +76,29 @@ a:hover{
     width: 90%;
 }
 
+.info{
+    font-weight: bold;
+    background: #ffc107;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
 h2{
+    position: relative;
     margin: 1rem 2rem;
     font-size: 2.5rem;
     color: #4e4e4e;
     border-bottom: 1px solid #4e4e4e;
     padding-bottom: .5rem;
+}
+
+h2 > .acciones{
+    font-size: 60%;
+    position: absolute;
+    right: 0;
 }
 
 .comidas{
@@ -178,11 +195,61 @@ h2 > a > i{
     border-radius: 5px;
 }
 
+.semana{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.semana__dia{
+    min-width: 15rem;
+    margin: 1rem;
+    padding: .5rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -webkit-box-shadow: 9px 10px 9px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 10px 9px -9px rgba(0,0,0,0.75);
+    box-shadow: 9px 10px 9px -9px rgba(0,0,0,0.75);
+}
+
+.semana__dia.findeofestivo{
+    background: #ffc1078c;
+}
+
+.semana__dia-header, .semana__dia-dia, .semana__dia-footer{
+    padding: .5rem;
+}
+
+.semana__dia-header{
+    text-align: center;
+    border-bottom: 2px solid gray;
+}
+
+.semana__dia-header__diasemana{
+    font-weight: bold;
+}
+
+.semana__dia-footer{
+    border-top: 2px solid gray;
+    text-align: center;
+}
+
+.form-solo-boton{
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and ( max-width: 500px ){
     .nav{
         flex-direction: column;
     }
     .nav > h1{
         text-align: center;
+    }
+    .semana{
+        flex-flow: column;
+        margin: 0 auto;
+        width: 90%;
     }
 }

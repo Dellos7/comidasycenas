@@ -19,6 +19,7 @@ CREATE TABLE festivo(
 CREATE TABLE dia(
     codigo INTEGER NOT NULL AUTO_INCREMENT,
     fecha DATE NOT NULL,
+    semana INTEGER(2) NOT NULL,
     finde BOOLEAN NOT NULL DEFAULT 0,
     festivo_cod INTEGER,
     mediodia_cod INTEGER,
